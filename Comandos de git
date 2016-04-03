@@ -1,0 +1,191 @@
+Comandos de git 
+
+$ git --version //para saber la version de nuestro git 
+$ git config --global user.name "Jhon Beltran"
+
+$ git config --global user.name
+Jhon Beltran
+
+$ git config --global user.email "jbeltranleon@gmail.com"
+
+$ git config --global user.email
+jbeltranleon@gmail.com
+
+
+System
+
+
+Es una configuración para todos los usuarios de tu computadora. En la práctica, lo ideal es que no trabajes en este nivel realmente. Al crear preferencias de GIT en System, afectará todo el entorno de tu área local.
+
+Regularmente es un archivo que se encuentra, dependiendo del sistema operativo, en:
+
+etc/gitconfig
+Ó en:
+
+/usr/local/git/etc/gitconfig
+ 
+
+Para hacer modificaciones al registro de GIT en System, debes utilizar en terminal:
+
+
+$ git config --system [variable] “[descripción de variable]"
+
+
+
+User
+
+
+Esta configuración es la más usada y recomendada. Aplica para el usuario de tu computadora, específicamente.
+
+Para encontrar este archivo, tienes que ir al “root” ó a la carpeta principal de usuario. Puedes llegar ahí con el carácter tilde (~)
+
+~/.gitconfig
+Para hacer modificaciones al registro de GIT en User, debes utilizar en terminal:
+
+$ git config --global [variable] “[descripción de variable]"
+
+
+
+Project
+
+
+Puedes generar una configuración específica para un proyecto puntual. Si por ejemplo, para ese proyecto necesitas utilizar otro correo ó un nombre diferente.
+
+Con esto, determinamos que puedes crear configuraciones por proyecto.
+
+El archivo de gitconfig (configuraciones) para un proyecto específico lo puedes encontrar en:
+
+~/[Ruta del proyecto]/.git/config
+Para hacer modificaciones al registro de GIT en un proyecto específico, debes utilizar en terminal:
+
+$ git config [variable] “[descripción de variable]"
+Como puedes observar, el git config se coloca directamente con la variable. Ya no utilizamos como en los anteriores algún --global ó --system
+
+Cabe aclarar que para ejecutar configuraciones al proyecto, debemos iniciar GIT con git init. 
+------------------------------------------------------------------------------------------------------------
+
+
+
+
+Para salir de una pantalla de la terminal presionamos la tecla: q
+
+$ git help //para encontrar una breve descripcion de los comandos mas usados, si no es suficiente puedes 				hacer por ejemplo:
+
+$ git help push
+
+
+$ git init //para iniciar git en nuestra proyecto (Carpeta) para que puieda rastear todo
+
+
+$ git status //Para saber el estado del proyecto, cambios nuevos, cambios borrados//EStado del repo
+
+$ git add -A //commit de origen guardar todos los archivos para empezar a rastrearlos//en este caso lo que hizo fue subir los archivos del working area al staging area.
+
+$ git commit -m "Estos son los archivos base en mi portafolio" //para subir los archivos al repositorio
+
+
+$ git log //como esta el repo a nivel de commits, cuantos son, quien los hizo, cuando y que son.
+
+
+$ git add index.html// para agregar en este caso los cambios del archivo index.html
+
+$ git add -A// para agregar todos los archivos al staging area nos dice que borramos
+
+$ git add .// para agregar todos los archivos al staging area que no esten traqueados (ignorados)
+
+$ git commit -m "Los nuevos cambios son bla bla" //para subir los archivos al repositorio
+
+$ git commit -ammed -m "Este sustituye el ultimo commit" //para subir los archivos al repositorio remplazando el ultimo commit
+
+$ git log > commits.txt //para generar un txt con los commits de mi proyecto
+
+
+$ git checkout 132anombredelcommit3432432 //para viajar en el tiempo uhhuuh 
+
+
+$ git checkout master//para volver al presente
+
+
+$ git reset //Puede arruniar la vida, borra los commits despues del commit en donde se situa
+
+$ git reset --soft 132anombredelcommit3432432// No se mete con sublimetext pero si borra los commits del repo//lo usamos tambien cuando queremos resumir varios commits en mas de uno
+
+$ git reset --mix 132anombredelcommit3432432// manda al carajo los datos del staging area y nos quedamos todavia lo del working area //lo usamos tambien cuando queremos resumir varios commits en mas de uno//si lo hacemos por segunda vez restaura lo que habia cambiado el reset mix
+
+$ git reset --hard 132anombredelcommit3432432// manda todo al carajo hasta lo de sublime
+
+si vuelvo a poner 
+
+$ git reset --hard 132anombredelcommit3432432// recuperas lo que mandaste al carajo
+
+
+git reset HEAD <file>..." to unstage //para bajar un archivo del staging area 
+
+$ git log --oneline  //commits sexis y ordenados en una sola linea
+
+$ git log --oneline--graph//commits sexis y ordenados en una sola linea con punticos (se unen como repo, funciona mucho con fusiones)
+
+
+git config --global alias.slog 'log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)" --all' 
+//alias para ese chorrero 
+
+
+$ git rm 'nombredelarchivo.ico' //para borrar un archivo desde gi
+
+Escribo commits puntuales con verbos neutrales
+
+
+git remote add origin https://github.com/Jhonbeltran/musiconrails.git
+git push -u origin master
+//para subir archivos a un repo
+
+
+git push origin HEAD
+/para actualizar ese repo
+
+HEAD pinter
+
+es un puntero que apunta al comid puntual en el que nos enconramos en el repositorio (nos dice a donde estamos)
+
+$ git commit -am "Cambio el mensaje de la pagina principal"
+
+usamos el -am para no tener que agregar todo y luego hacer el commit
+
+$ git commit -m "Autor y fecha actualizados" --amend
+
+usamos --amend para rectificar nuestro ultimo commit
+
+$ git log --decorate // nos dice en que punto de los commits nos encontramos (HEAD -> master)
+
+$ git log --stat//nos muestra las estadisticas (cambios realizados) en cada commit
+
+$ git log -p // nos indica la cantidad de lineas que cambiamos, asi como los cambios especificos que se le hicieron al codigo
+
+git shortlog para poder ver que autores realizaron los cambios (commits)
+
+$ git log --graph --oneline --decorate//para seguir la historia de nuestro proyecto//para ver el network de nuestro proyecto en la terminal(Ramas)
+
+git log --pretty=format:"%cn hizo un commit %h el dia %cd"//para ver quien hace el commit y cuando asi bien boneto
+
+
+$ git log -3 //filtro de comandos por cantidad
+
+git log --after=#today"//filtro de comandos por cantidad
+
+git log --after="2016-1-1" --before="today"
+
+$ git log --author="Jhonbeltran"//filtro de commits por autor
+
+git log --grep="fecha"//por mensaje en el commit(contendio del nombre del commit)
+
+$ git log --grep="fecha" -i //para la sensibilidad de caracteres
+
+
+
+$ git log -- nombredelarchivo.ext //para buscar archivos
+
+git log -S"git" /para ver en que commit se generaron estos cambios 
+
+git tag //Es un commit abanderado
+
+git revase // es para hacer que la rama quede delante del master

@@ -1,0 +1,45 @@
+commit 3b348399350beefbdf905be99ce30e3d04d786dc
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:18:40 2016 -0500
+
+    Reparé error en el sitio wen (nombre)
+
+commit 2f7b2cf8286d03f13fb0e26770996b4e97d38046
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:17:38 2016 -0500
+
+    Agregué mi sitio web
+
+commit 2be5dd048e9c9d34c1c49e74df95396b36de1f26
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:15:52 2016 -0500
+
+    Agregué presentacion
+
+commit e627e5bd5af1ae6451f76544ad0dfdcc268fd056
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:13:47 2016 -0500
+
+    Redes sociales
+
+commit aa9214ebd1af714a16fda1a14ad12bb9ab1024bf
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:08:37 2016 -0500
+
+    Perfil web actualizado
+
+commit b6deb8e5afae7cf772253a8e61dc04f5b818a995
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 16:02:53 2016 -0500
+
+    Subí foto de perfil y mi nombre
+
+commit 132a712a36b2e4bfc2b42a4a9d4344054d3f0436
+Author: Jhon Beltran <jbeltranleon@gmail.com>
+Date:   Fri Feb 12 15:49:30 2016 -0500
+
+    Estos son los archivos base en mi portafolio
+
+
+
+

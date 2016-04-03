@@ -1,0 +1,99 @@
+//Las rmas las podemos usar para:
+
+* ideas
+* features
+* bug fixes
+
+
+$ git checkout -b (experimental) //crea la raiz para una rama
+si luego hacemos un git commit -am "acabamos de crear una rama"
+
+usamos
+
+$ git log --oneline --graph --all
+//para ver las ramas y todo
+git config --global alias.nicelog 'log --oneline --graph --all'
+
+y podemos cambiar de ramas 
+
+$ git checkout master
+$ git checkout experimental
+
+para hacer un a fusion
+ 1) $ git checkout master
+ 2) $ git merge experimental
+
+##############################################################
+###############SOLUCION DE CONFLICTOS#########################
+##############################################################
+
+a) Fast-Forward>>> cuando los cambios no suceden en los mismos archivos
+b) Manual Merge>>> cuando se alteran las mismas lineas de codigo en un commit
+
+
+REBASE
+ para hacer que la rama quede delante del master(lo podemos usar en un bug fix)
+ sirve para versiones (normalmente lo que se hace son fusiones)
+ $ git merge 
+
+
+###############################################################################
+################Ejemplo de Rebase##############################################
+###############################################################################
+
+$ git slog
+* c187881 - (5 seconds ago) 3  - Jhonbeltran (HEAD -> master)
+| * 55fe091 - (71 seconds ago) b  - Jhonbeltran (ramarebase)
+| * 7f67b3f - (88 seconds ago) a  - Jhonbeltran
+|/  
+* 03ebb27 - (3 minutes ago) 2  - Jhonbeltran
+* fe6415b - (4 minutes ago) 1  - Jhonbeltran
+* 661f638 - (4 minutes ago) 0  - Jhonbeltran
+
+$ git checkout ramarebase
+$ git rebase master
+Luego del Rebase
+
+First, rewinding head to replay your work on top of it...
+Applying: a
+Applying: b
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-master$ git slog
+* 5c54316 - (5 minutes ago) b  - Jhonbeltran (HEAD -> ramarebase)
+* e07749f - (5 minutes ago) a  - Jhonbeltran
+* c187881 - (4 minutes ago) 3  - Jhonbeltran (master)
+* 03ebb27 - (7 minutes ago) 2  - Jhonbeltran
+* fe6415b - (8 minutes ago) 1  - Jhonbeltran
+* 661f638 - (8 minutes ago) 0  - Jhonbeltran
+
+//Para poner el master hasta el final
+$ git merge ramarebase
+
+Updating c187881..5c54316
+Fast-forward
+ a.txt | 0
+ b.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+ create mode 100644 b.txt
+
+
+**************************************************
+
+Acá podemos ver como se ven las ramas dentro de ramas
+
+$ git slog
+* 1c87d26 - (2 seconds ago) Agrego archivofinal.txt  - Jhonbeltran (HEAD -> master)
+* 9c553ef - (4 minutes ago) Agrego xyz  - Jhonbeltran
+| * d406a89 - (77 seconds ago) Agrego def  - Jhonbeltran (feature1)
+| | * 2a21e83 - (2 minutes ago) Agregamos lmn.txt  - Jhonbeltran (subfeature1)
+| |/  
+| * e35d600 - (4 minutes ago) Agrego abc  - Jhonbeltran
+|/  
+* 5c54316 - (15 minutes ago) b  - Jhonbeltran (ramarebase)
+* e07749f - (15 minutes ago) a  - Jhonbeltran
+* c187881 - (14 minutes ago) 3  - Jhonbeltran
+* 03ebb27 - (17 minutes ago) 2  - Jhonbeltran
+* fe6415b - (18 minutes ago) 1  - Jhonbeltran
+* 661f638 - (18 minutes ago) 0  - Jhonbeltran
+
+

@@ -1,0 +1,13 @@
+Comandos basicos para la terminal
+
+cd .. //salir de la carpeta
+
+ls//ver el contenido de la carpeta
+
+cd /d //para ir al disco local d
+
+cd /Carpeta //para ir a una carpeta
+
+cd NombreDeCarpeta
+
+rm //remover
