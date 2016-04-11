@@ -1,0 +1,187 @@
+Tecnica para abanderar commits, versiones del proyecto, un feature fuerte, etc
+
+Existen 2 formas
+
+-Annotated Tags
+-Lightweight Tags
+
+
+$ git init
+Initialized empty Git repository in /media/jhon/Disco local/Estudio/Git y Github/git-tags/.git/
+$ git add -A
+$ git commit -m "archivos iniciales"
+
+[master (root-commit) 879ad7c] archivos iniciales
+ 14 files changed, 2678 insertions(+)
+ create mode 100644 assets/css/screen.css
+ create mode 100644 assets/fonts/casper-icons.eot
+ create mode 100644 assets/fonts/casper-icons.svg
+ create mode 100644 assets/fonts/casper-icons.ttf
+ create mode 100644 assets/fonts/casper-icons.woff
+ create mode 100644 assets/images/IMG_0022.JPG
+ create mode 100644 assets/images/IMG_0111.JPG
+ create mode 100644 assets/images/IMG_2.png
+ create mode 100644 assets/js/index.js
+ create mode 100644 assets/js/jquery.fitvids.js
+ create mode 100644 favicon.ico
+ create mode 100644 index.html
+ create mode 100644 index2.html
+ create mode 100644 post-1/index.html
+
+$ git slog
+* 879ad7c - (4 seconds ago) archivos iniciales  - Jhonbeltran (HEAD -> master)
+$ touch 1.txt
+$ git add -A
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   1.txt
+
+$ git commit -m "1"
+[master dc19c79] 1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1.txt
+
+$ touch 2.txt
+$ git add -A 
+$ git commit -m "2"
+[master f9173dc] 2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 2.txt
+
+$ git slog
+* f9173dc - (10 seconds ago) 2  - Jhonbeltran (HEAD -> master)
+* dc19c79 - (45 seconds ago) 1  - Jhonbeltran
+* 879ad7c - (8 minutes ago) archivos iniciales  - Jhonbeltran
+
+
+$ git tag -a v1.0 -m "Navegacion completa"
+
+$ git tag
+v1.0
+
+$ git show v1.0
+tag v1.0
+Tagger: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:21:23 2016 -0500
+
+Navegacion completa
+
+commit f9173dcbc6ef582cca5130f0c4e8edadf32ec4a2
+Author: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:19:06 2016 -0500
+
+    2
+
+diff --git a/2.txt b/2.txt
+new file mode 100644
+index 0000000..e69de29
+
+$ touch archivo.txt
+$ git add -A
+$ git commit -m "Archivo"
+[master f4e838c] Archivo
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 archivo.txt
+
+$ git slog
+* f4e838c - (2 seconds ago) Archivo  - Jhonbeltran (HEAD -> master)
+* f9173dc - (8 minutes ago) 2  - Jhonbeltran (tag: v1.0)
+* dc19c79 - (8 minutes ago) 1  - Jhonbeltran
+* 879ad7c - (16 minutes ago) archivos iniciales  - Jhonbeltran
+
+(Podemos viajar en el tiempo usando los Tags)
+
+$ git checkout v1.0
+Note: checking out 'v1.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f9173dc... 2
+  
+$ git checkout master
+$ touch readme.txt
+$ git add -A
+$ git commit -m "readme"
+[master e425fe6] readme
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.txt
+
+$ git slog
+* e425fe6 - (5 seconds ago) readme  - Jhonbeltran (HEAD -> master)
+* f4e838c - (20 minutes ago) Archivo  - Jhonbeltran
+* f9173dc - (28 minutes ago) 2  - Jhonbeltran (tag: v1.0)
+* dc19c79 - (28 minutes ago) 1  - Jhonbeltran
+* 879ad7c - (36 minutes ago) archivos iniciales  - Jhonbeltran
+
+$ git tag v1.1
+
+$ git slog
+* e425fe6 - (5 minutes ago) readme  - Jhonbeltran (HEAD -> master, tag: v1.1)
+* f4e838c - (25 minutes ago) Archivo  - Jhonbeltran
+* f9173dc - (33 minutes ago) 2  - Jhonbeltran (tag: v1.0)
+* dc19c79 - (34 minutes ago) 1  - Jhonbeltran
+* 879ad7c - (41 minutes ago) archivos iniciales  - Jhonbeltran
+
+$ git tag -l "v1.1"
+v1.1
+ 
+  
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-tags$ git tag -a v0.9 c19c79 
+fatal: Failed to resolve 'c19c79' as a valid ref.
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-tags$ git tag -a v0.9 c19c79 
+fatal: Failed to resolve 'c19c79' as a valid ref.
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-tags$ git log
+commit e425fe6e0d95dac9b6c156c4ef60f833e61dbb5e
+Author: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:46:46 2016 -0500
+
+    readme
+
+commit f4e838ce360c43bf5fdf384f3348845316a83ee8
+Author: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:26:38 2016 -0500
+
+    Archivo
+
+commit f9173dcbc6ef582cca5130f0c4e8edadf32ec4a2
+Author: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:19:06 2016 -0500
+
+    2
+
+commit dc19c792c97a00eeb97f231813618add0019c3bb
+Author: Jhonbeltran <jbeltranleon@gmail.com>
+Date:   Sat Apr 9 14:18:31 2016 -0500
+
+    1
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-tags$ git slog
+* e425fe6 - (12 minutes ago) readme  - Jhonbeltran (HEAD -> master, tag: v1.1)
+* f4e838c - (32 minutes ago) Archivo  - Jhonbeltran
+* f9173dc - (40 minutes ago) 2  - Jhonbeltran (tag: v1.0)
+* dc19c79 - (40 minutes ago) 1  - Jhonbeltran
+* 879ad7c - (48 minutes ago) archivos iniciales  - Jhonbeltran
+
+$ git tag -a v0.9 dc19c792c97a00eeb97f231813618add0019c3bb
+
+$ git slog
+
+* e425fe6 - (13 minutes ago) readme  - Jhonbeltran (HEAD -> master, tag: v1.1)
+* f4e838c - (33 minutes ago) Archivo  - Jhonbeltran
+* f9173dc - (41 minutes ago) 2  - Jhonbeltran (tag: v1.0)
+* dc19c79 - (41 minutes ago) 1  - Jhonbeltran (tag: v0.9)
+* 879ad7c - (49 minutes ago) archivos iniciales  - Jhonbeltran
+ 
+$ git tag
+v0.9
+v1.0
+v1.1

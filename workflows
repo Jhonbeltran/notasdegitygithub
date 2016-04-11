@@ -1,0 +1,54 @@
+Flujos de trabajo colaborativos
+
+Github funciona en dos bases:
+
+-Exploracion (Clone)
+-Colaboracion
+
+
+-Exploracion (Clone) -> Descargar un proyecto con el objetivo de utilizarlo sin pensar
+						en colaborar
+
+			$git clone [repositorio via SSH ó HTTPS]
+
+			$git shortlog //para ver los cambios realizados por cada persona
+
+-Colaboracion -> Repositorios personales(proyectos creados por nosotros) 
+				Personas alrededor proponen y tú decides si aceptar o nosotros
+				Proyectos personales, generalmente
+
+
+Llave ssh = (en github) secure sheel (un comando que al ejecutarlo en terminal nosotros
+crea dos llaves, una publica (codigo que podemos poner en nuestro server, en github) 
+y la otra privada (para nuestra area local)) si coinciden puedes proponer archivos, 
+documentos, puedes descargar y contribuir con archivos
+
+usa rsa (algoritmo de sha)
+
+
+                   bits
+                   de
+                   numero
+ ssh-keygen -t rsa -b 4096 -C "jbeltranleon@gmail.com"
+ 	vamos      tipo 
+ 	a          de 
+ 	generar    algoritmo
+ 	una
+ 	llave		
+ 			
+
+jhon@jhon-Satellite-C645:~$ ls -la
+total 556
+
+drwx------  2 jhon jhon   4096 mar 26 13:20 .ssh
+
+
+jhon@jhon-Satellite-C645:~$ cd .ssh
+jhon@jhon-Satellite-C645:~/.ssh$ ls
+id_rsa  id_rsa.pub
+
+jhon@jhon-Satellite-C645:~/.ssh$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1ygggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggc2EAAAADAQABAAACAQC3OsBUpnLE8IDa0GEmrXZRRNTue2wwf50+tOoqUD2VP9qNJ8vyxP6as633W3oz9Q+XtopLN1r9uL+Q1Wa2+5QpYJB7tg54Tx8p48etFWTVf0ohoa2ako4mMxXhSS4qdmA54cUc6ukE7CKm4lr96sgm/KqcLe6ZGg7h+5MjEZYoYB0tQYwRw== jbeltranleon@gmail.com
+
+
+ 			

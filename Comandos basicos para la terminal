@@ -11,3 +11,7 @@ cd /Carpeta //para ir a una carpeta
 cd NombreDeCarpeta
 
 rm //remover
+
+touch archivo.txt //para crear archivos
+
+mkdir nombredelacarpeta /para crear una carpeta

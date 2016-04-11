@@ -34,7 +34,151 @@ b) Manual Merge>>> cuando se alteran las mismas lineas de codigo en un commit
 REBASE
  para hacer que la rama quede delante del master(lo podemos usar en un bug fix)
  sirve para versiones (normalmente lo que se hace son fusiones)
- $ git merge 
+
+ ##############################################################
+ ######################$ git merge ############################
+ ##############################################################
+
+
+$ git slog
+
+* 48a634f - (15 seconds ago) 4  - Jhonbeltran (HEAD -> master)
+| * c748b15 - (2 minutes ago) c  - Jhonbeltran (experimental)
+| * 2f49a0f - (2 minutes ago) b  - Jhonbeltran
+| * 9f1ad59 - (2 minutes ago) a  - Jhonbeltran
+|/  
+* 0e2f189 - (4 minutes ago) 3  - Jhonbeltran
+* 2357bac - (5 minutes ago) 2  - Jhonbeltran
+* 4c50167 - (5 minutes ago) 1  - Jhonbeltran
+* df0702c - (20 minutes ago) 0  - Jhonbeltran
+
+$git checkuto master
+$ git merge experimental
+
+*le damos el nombre a la fusion y guardamos los cambios
+
+luego de hacer la fusion
+
+$ git slog
+*   01d8b9c - (4 minutes ago) Merge branch 'experimental' Fusion Realizada  - Jhonbeltran (HEAD -> master)
+|\  
+| * c748b15 - (14 minutes ago) c  - Jhonbeltran (experimental)
+| * 2f49a0f - (15 minutes ago) b  - Jhonbeltran
+| * 9f1ad59 - (15 minutes ago) a  - Jhonbeltran
+* | 48a634f - (13 minutes ago) 4  - Jhonbeltran
+|/  
+* 0e2f189 - (17 minutes ago) 3  - Jhonbeltran
+* 2357bac - (18 minutes ago) 2  - Jhonbeltran
+* 4c50167 - (18 minutes ago) 1  - Jhonbeltran
+* df0702c - (32 minutes ago) 0  - Jhonbeltran
+
+$ git branch -d experimental
+Deleted branch experimental (was c748b15).
+//para borrar ramas
+* Las ramas las borramos solamente luego de hacer una fusion
+
+############################################################
+
+// acá podemos ver que podemos hacer cuando se esten editando el mimos archivo (en la misma linea)
+//y se desea hacer una fusion de la rama experimental con la rama master
+
+
+$ git slog
+* 7fe9b4f - (4 seconds ago) Querido mundo  - Jhonbeltran (HEAD -> master)
+| * 0a2de36 - (2 minutes ago) hola mundo  - Jhonbeltran (experimental2)
+|/  
+* 5cb7c84 - (4 minutes ago) z  - Jhonbeltran
+* a5bea9b - (4 minutes ago) y  - Jhonbeltran
+* d1f4901 - (4 minutes ago) x  - Jhonbeltran
+*   01d8b9c - (15 minutes ago) Merge branch 'experimental' Fusion Realizada  - Jhonbeltran
+|\  
+| * c748b15 - (26 minutes ago) c  - Jhonbeltran
+| * 2f49a0f - (26 minutes ago) b  - Jhonbeltran
+| * 9f1ad59 - (27 minutes ago) a  - Jhonbeltran
+* | 48a634f - (25 minutes ago) 4  - Jhonbeltran
+|/  
+* 0e2f189 - (28 minutes ago) 3  - Jhonbeltran
+* 2357bac - (29 minutes ago) 2  - Jhonbeltran
+* 4c50167 - (30 minutes ago) 1  - Jhonbeltran
+* df0702c - (44 minutes ago) 0  - Jhonbeltran
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git merge experimental2
+Auto-merging x.txt
+CONFLICT (content): Merge conflict in x.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+en el archivo vamos a ver las dos ediciones separadas de la siguiente manera
+
+<<<<<<< HEAD
+Querido mundo
+=======
+hola mundo
+>>>>>>> experimental2
+
+eliminamos lo que no vamos a dejar
+
+hola mundo
+
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   x.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git merge experimental2
+Auto-merging x.txt
+CONFLICT (content): Merge conflict in x.txt
+Automatic merge failed; fix conflicts and then commit the result.
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   x.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git add -A
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+
+	modified:   x.txt
+
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git commit -m "Fusion ejecutada"
+[master b0988a1] Fusion ejecutada
+jhon@jhon-Satellite-C645:/media/jhon/Disco local/Estudio/Git y Github/git-branches$ git slog
+*   b0988a1 - (6 seconds ago) Fusion ejecutada  - Jhonbeltran (HEAD -> master)
+|\  
+| * 0a2de36 - (66 minutes ago) hola mundo  - Jhonbeltran (experimental2)
+* | 7fe9b4f - (64 minutes ago) Querido mundo  - Jhonbeltran
+|/  
+* 5cb7c84 - (68 minutes ago) z  - Jhonbeltran
+* a5bea9b - (68 minutes ago) y  - Jhonbeltran
+* d1f4901 - (68 minutes ago) x  - Jhonbeltran
+*   01d8b9c - (79 minutes ago) Merge branch 'experimental' Fusion Realizada  - Jhonbeltran
+|\  
+| * c748b15 - (2 hours ago) c  - Jhonbeltran
+| * 2f49a0f - (2 hours ago) b  - Jhonbeltran
+| * 9f1ad59 - (2 hours ago) a  - Jhonbeltran 
+* | 48a634f - (88 minutes ago) 4  - Jhonbeltran
+|/  
+* 0e2f189 - (2 hours ago) 3  - Jhonbeltran
+* 2357bac - (2 hours ago) 2  - Jhonbeltran
+* 4c50167 - (2 hours ago) 1  - Jhonbeltran
+* df0702c - (2 hours ago) 0  - Jhonbeltran
 
 
 ###############################################################################
@@ -96,4 +240,8 @@ $ git slog
 * fe6415b - (18 minutes ago) 1  - Jhonbeltran
 * 661f638 - (18 minutes ago) 0  - Jhonbeltran
 
+
+podemos hacer un:
+
+$ git reset --merge commitdelpadre
 
