@@ -1,0 +1,12 @@
+$ mkdir impresionante
+$ cd impresionante
+$ git init
+Initialized empty Git repository in /media/jhon/Disco local/Estudio/Git y Github/impresionante/.git/
+$ git remote add origin git@github.com:Jhonbeltran/impresionante.git
+$ git remote add upstream https://github.com/Fredyleon/impresionante.git
+$ git remote -v
+origin	git@github.com:Jhonbeltran/impresionante.git (fetch)
+origin	git@github.com:Jhonbeltran/impresionante.git (push)
+upstream	https://github.com/Fredyleon/impresionante.git (fetch)
+upstream	https://github.com/Fredyleon/impresionante.git (push)
+

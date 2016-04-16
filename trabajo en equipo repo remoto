@@ -1,0 +1,40 @@
+Dentro de settings en nuestro repo en github hemos agregado un colaborador
+ahora vamos a descargar el proyecto:
+
+$ mkdir equipo
+$ git init
+Initialized empty Git repository in /media/jhon/Disco local/Estudio/Git y Github/equipo/.git/
+
+$ git remote add origin git@github.com:Jhonbeltran/equipo.git
+
+$ git fetch origin
+Warning: Permanently added the RSA host key for IP address '192.30.252.129' to the list of known hosts.
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From github.com:Jhonbeltran/equipo
+ * [new branch]      master     -> origin/master
+
+$ git merge origin/master
+
+$ touch mexico1.txt
+$ git add -A
+$ git commit -m "Mexico 1"
+[master 5c4ffc1] Mexico 1
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 1.txt
+ rename mexico => mexico1.txt (100%)
+
+$ git push origin master
+Warning: Permanently added the RSA host key for IP address '192.30.252.123' to the list of known hosts.
+Counting objects: 2, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 271 bytes | 0 bytes/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To git@github.com:Jhonbeltran/equipo.git
+   397a716..5c4ffc1  master -> master
+ 
+
+Antes de hacer cambios en el repo, yo debo verificar que cambios han subido otros miembros del equipo
+

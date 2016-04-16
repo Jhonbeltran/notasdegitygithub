@@ -1,0 +1,52 @@
+Para usar ghost debemos situarnos dentro de la carpeta,
+y abrirla en terminal,
+
+$npm start (para iniciar el server)
+
+luego de que el server esta on
+
+vamos a la siguiente direccion:
+http://127.0.0.1:2368
+en donde tendremos un blog de ghost pos defecto
+
+despues para crear vistas estaticas vamos a ejecutar el comando:
+$buster generate
+
+lo cual nos genera una serie de archivos dentro de nuestra carpeta de ghost
+
+vamos a situarnos dentro de la carpeta llamada
+static (todo lo que se encuentra en esta caperta
+es lo que vamos a subir a github pages para poder
+desplegar el blog en el server remoto)
+
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8$ cd static
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ git init
+Initialized empty Git repository in /home/jhon/Desktop/ghost-0.7.8/static/.git/
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ git add -A
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ git commit -m "Archivos base de blog"
+[master (root-commit) 79ab1ae] Archivos base de blog
+ 13 files changed, 2737 insertions(+)
+ create mode 100644 assets/css/screen.css
+ create mode 100644 assets/fonts/casper-icons.eot
+ create mode 100644 assets/fonts/casper-icons.svg
+ create mode 100644 assets/fonts/casper-icons.ttf
+ create mode 100644 assets/fonts/casper-icons.woff
+ create mode 100644 assets/js/index.js
+ create mode 100644 assets/js/jquery.fitvids.js
+ create mode 100644 favicon.ico
+ create mode 100644 index.html
+ create mode 100644 robots.txt
+ create mode 100644 rss/index.rss
+ create mode 100644 tag/getting-started/index.html
+ create mode 100644 welcome-to-ghost/index.html
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ git remote add origin git@github.com:Jhonbeltran/jhonbeltran.github.io.git
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ git push origin master
+Counting objects: 23, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (23/23), 22.55 KiB | 0 bytes/s, done.
+Total 23 (delta 4), reused 0 (delta 0)
+To git@github.com:Jhonbeltran/jhonbeltran.github.io.git
+ * [new branch]      master -> master
+jhon@jhon-Satellite-C645:~/Desktop/ghost-0.7.8/static$ 
+
