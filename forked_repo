@@ -10,3 +10,18 @@ origin	git@github.com:Jhonbeltran/impresionante.git (push)
 upstream	https://github.com/Fredyleon/impresionante.git (fetch)
 upstream	https://github.com/Fredyleon/impresionante.git (push)
 
+
+----------------------------------------------------------------
+
+
+Crear ó entrar a la carpeta del proyecto
+	$ git remote add origin [HTTPS ó SSH del proyecto forked]
+	$ git remote add upstream [HTTPS ó SSH del proyecto principal]
+	$ git fetch upstream
+	$ git merge origin/upstream
+	$ git fetch origin
+	$ git merge origin/master
+	Hacer cambios en local
+	$ git fetch upstream
+	$ git merge origin/upstream
+	$ git push origin master
