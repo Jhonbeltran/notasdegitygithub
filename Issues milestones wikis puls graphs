@@ -1,0 +1,10 @@
+los milestiones son las metas que se proponen en el proyecto, como la creacion de un (to do) por ejemplo un landing. 
+
+issues son los temas o las acciones puntuales que se van a tratar en el proyecto
+
+En wiki nos expandimos para mostrar la vision de negocio del proyecto
+a que se ha llegado, es la forma como documentamos todo lo del proyecto, la historia, la construccion, nuevos miembros, todo loq ue se fue desarrollando a lo largo del tiempo. mostramos a que queremos llegar en el proyecto y como lo estamos logrando
+
+En el pulse podemos ver que acciones se han realizado en el repo remoto, te indica por fechas que se esta desarrollando, saber si se esta avanzando, si un feature esta tardando mucho, etc...
+
+En graphs podremos ver todo lo que ha sucedido a lo largo del tiempo en el repositorio
