@@ -1,0 +1,63 @@
+Deployment
+
+despliegue, servidor donde se ejecuta una aplicacion web
+como llevo mi proyecto a internet y que cualquiera pueda verlo
+
+Datos:
+ver pdf 7
+* La llave publica se queda siempre en el receptor 
+(secure shell (are u the owner))
+llave publica=candado |  llave privada=llave 
+
+**Para hosting normal**
+*conexion mediante ssh
+
+~ ssh nombredeusuario@subdominio.dominiodelhosting.com
+~ ingresamos nuestra contraseña
+
+[nombredeusuario@subdominio ~]$ ls
+assets			lib					partials	tmp
+bin				logs				post.hbs	webapps
+default.hbs		node_modules		share
+error.hbs		npm-debug.logs		src
+index.hbs		page.hbs			tag.hbs
+
+
+[nombredeusuario@subdominio ~]$ cd webapps/
+//Acá podemos ver las diferentes aplicaciones alojadas en el 
+//server
+
+[nombredeusuario@subdominio ~]$ cd carpetadelproyecto/
+
+[nombredeusuario@subdominio carpetadelproyecto]$ ssh-keygen (para crear la llave)
+//La llave publica va en github (en ssh keys)
+
+[nombredeusuario@subdominio carpetadelproyecto]$ git init
+
+//si el server no tiene git y el server tiene instaladores de yum (usamos yum install git)
+
+[nombredeusuario@subdominio carpetadelproyecto]$ git clone https://github.com/BuhoMachine/blog-universidad.git
+
+[nombredeusuario@subdominio carpetadelproyecto]$ ls
+blog-universidad
+[nombredeusuario@subdominio carpetadelproyecto]$ cd blog-universidad/
+[nombredeusuario@subdominio blog-universidad]$
+deploy.txt	index.txt	README.md
+[nombredeusuario@subdominio blog-universidad]$
+
+1. acceso ssh
+2. acceder a la areas de proyectos webaps
+3.poder hacer un clon o un add origin master
+
+
+tambien podemos: 
+
+
+[nombredeusuario@subdominio carpetadelproyecto]$  git remote add origin https://github.com/BuhoMachine/blog-universidad.git
+
+[nombredeusuario@subdominio carpetadelproyecto]$ git pull origin master (es fetch y merge)
+//Para agregar nuevos cambios
+[nombredeusuario@subdominio carpetadelproyecto]$ 
+
+
+

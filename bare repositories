@@ -1,0 +1,72 @@
+➜  Desktop mkdir server
+➜  Desktop mkdir local 
+➜  Desktop cd server
+➜  server git init --bere repo.git
+
+//Asi iniciamos el repo bare
+
+➜  server git init --bare repo.git
+Initialized empty Git repository in /home/jhon/Desktop/server/repo.git/
+➜  server 
+
+➜  server cd ..
+➜  Desktop cd local
+//de esta manera nos conectamos remotamente con el repo bare 
+
+➜  local git clone ../server/repo.git repo
+Cloning into 'repo'...
+warning: You appear to have cloned an empty repository.
+done.
+➜  local ls
+repo
+➜  local cd repo
+➜  repo git:(master) git status
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+➜  repo git:(master) touch readme.md
+➜  repo git:(master) ✗ git add -A
+➜  repo git:(master) ✗ git commit -m "Documentacion"
+[master (root-commit) 783ba19] Documentacion
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.md
+
+//de esta forma subimos nuestros cambios locales al repo bare
+➜  repo git:(master) git push origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 215 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To /home/jhon/Desktop/local/../server/repo.git
+ * [new branch]      master -> master
+➜  repo git:(master) cd ..
+➜  local cd ..
+➜  Desktop cd server
+➜  server ls
+repo.git
+➜  server cd repo.git
+➜  repo.git git:(master) ls
+//Esto es lo que contiene nuestra carpeta repo.git en server
+branches  config  description  HEAD  hooks  info  objects  refs
+➜  repo.git git:(master)
+
+//Ahora debemos clonar el repo en el server para poder ver lo que contiene.
+ 
+➜  Desktop cd server
+➜  server ls
+repo.git
+➜  server git clone repo.git deploy
+Cloning into 'deploy'...
+done.
+➜  server ls
+deploy  repo.git
+➜  server cd deploy
+➜  deploy git:(master) ls
+readme.md
+➜  deploy git:(master) cd ..
+➜  server cd repo.git
+➜  repo.git git:(master) ls
+branches  config  description  HEAD  hooks  info  objects  refs
+➜  repo.git git:(master) 
