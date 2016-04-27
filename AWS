@@ -1,0 +1,24 @@
+						*Amazon Web Services*
+
+|||||||||||||||||Funciona bajo el de CloudComputing |||||||||||||||
+| Funciona bajo terminos de escalabilidad =! hosting paga mensual |
+
+AWS se va a adaptar a las necesidades que vayamos teniendo.
+
+Si en un hosting normal sobrepasamos la capacidad debemos pagar mas
+(se puede caer el server)
+
+AWS funciona bajo un termino de 
+elasticidad>> Si el proyecto crece mucho el va creciendo con nosotros.
+*Pagamos de acuerdo al consumo(existen modulos free)
+Hay version español e ingles
+
+Podemos configurar usuarios en Security and Identity
+
+			||||||||||||EC2|||||||||||||||
+			|Virtual Servers in the Cloud|
+			||||||||||||||||||||||||||||||
+
+			
+Generas un servidor virutal, instancias
+
